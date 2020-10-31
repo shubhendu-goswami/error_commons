@@ -5,9 +5,11 @@ type Error struct {
 	Code    int64
 }
 
-func (e Error) Error(message string, code int64) {
-	e.Code = code
-	e.Message = message
+func NewError(message string, code int64) Error {
+	return Error{
+		Message: message,
+		Code:    code,
+	}
 }
 
 func (e Error) GetMessage() string {
